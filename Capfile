@@ -9,6 +9,9 @@ set :scm, :git
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
+#This is normally set by capistrano to a default. We want to eliminate the default because we have our own
+set :deploy_to, nil
+
 # Uncomment if you are using submodules
 #set :git_enable_submodules, 1
 
@@ -34,6 +37,8 @@ set :ssh_options, { :forward_agent => true }
 # it is better to run it from your .bashrc 
 # `ssh-add ~/.ssh/id_rsa`
 
+#This is needed for the after callbacks. 
+environments = [:staging, :production, :testing]
 
 ### These are global settings for all environments
 
@@ -109,17 +114,17 @@ namespace :deploy do
 end
 
 
-#note the use of the "before" hook to set the deploy path.
-
-before "deploy" do
-  #this is the default deployment directory, you can override in your stages
-   set :deploy_to, "/home/#{user}/#{application}/#{branch}" if deploy_to.nil?
+#put code in here to set variables that depend on the environment
+environments.each do |env|
+  after env do
+    set :deploy_to, "/home/#{user}/#{application}/#{branch}" if deploy_to.nil?
+  end
 end
 
-#examples of using after hook
+#examples of using before hook
 
 
-after "deploy:update_code" do
+before "deploy:update_code" do
   deploy.hello_world
 end
 
