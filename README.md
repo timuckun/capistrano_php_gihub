@@ -13,24 +13,24 @@ This project consists of a Capfile and these instructions. Put the Capfile in th
 
 
 ### Server setup
-4. (optional recommended) Create a deployment user for your app your application will be deployed in this users home directory
-4.1. sudo /usr/sbin/useradd app_deployer
-5. (optional) if you don't want to type in a password all the time copy your public key to the deploy users ~/.ssh/authorized_keys
-5.1. On debian based systems ssh-copy-id works great
+*  (optional recommended) Create a deployment user for your app your application will be deployed in this users home directory
+    * sudo /usr/sbin/useradd app_deployer
+* (optional) if you don't want to type in a password all the time copy your public key to the deploy users ~/.ssh/authorized_keys
+    * On debian based systems ssh-copy-id works great
 
 
 ###  Setup your workstation
-5.  Install ruby (rvm works great on unix systems)
-6.  Install rubygems unless your ruby installer already did it for you
-7.  install capistrano 
-7.1 gem install capistrano
+*  Install ruby (rvm works great on unix systems)
+*  Install rubygems unless your ruby installer already did it for you
+*  install capistrano 
+  * gem install capistrano
 
 
 ###  Deploy!
-7. Put the Capfile in your application's home directory
-8. Modify to suit your application and deployment needs.
-9. type "cap testing deploy:setup" (substitute production, staging for testing as needed)
-10. cap testing deploy
-11. cap production deploy
-12. cap staging deploy
+*  Put the Capfile in your application's home directory
+*  Modify to suit your application and deployment needs.
+*  type "cap testing deploy:setup" (substitute production, staging for testing as needed)
+* cap testing deploy
+  * cap production deploy
+  * cap staging deploy
 
