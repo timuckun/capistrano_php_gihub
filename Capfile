@@ -102,7 +102,7 @@ namespace :deploy do
   
   #custom tasks
   task :hello_world, :roles => [:db, :app] do
-    puts "calling hello_world..."
+    puts "calling hello_world on the db and app server(s)"
     hello_world
   end
 
