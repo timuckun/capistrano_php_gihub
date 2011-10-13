@@ -9,7 +9,7 @@ This project consists of a Capfile and these instructions. Put the Capfile in th
 
 * Create a github account for yourself if you don't have one
 * (optional reccomended) Upload your public key to github
-    * if you don't have keys you can generate them using ssh-keygen 
+    * if you don't have keys you can generate them using ssh-keygen see gihub help for instructions
 
 
 ### Server setup
